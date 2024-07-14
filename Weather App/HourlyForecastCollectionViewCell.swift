@@ -9,7 +9,7 @@ import UIKit
 
 class HourlyForecastCollectionViewCell: UICollectionViewCell {
     
-    static let indentifier: String = "HourlyForecast"
+    static let identifier: String = "HourlyForecast"
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [hourLabel, iconImageView, temperatureLabel])
@@ -77,11 +77,8 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
+        stackView.setConstraintsToParent(contentView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             iconImageView.heightAnchor.constraint(equalToConstant: 33),
         ])
     }
