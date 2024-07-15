@@ -28,7 +28,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     private lazy var hourLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "13:00"
         label.textColor = UIColor.constrastColor
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
         label.textAlignment = .center
@@ -39,7 +38,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "25°C"
         label.textColor = UIColor.constrastColor
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.textAlignment = .center
@@ -50,7 +48,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "sunIcon")
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -66,6 +63,12 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     }
     
     //TODO - CRIAR PROTOCOLO PARA DEFINIR AS FUNCOES DE SETUP/HIERARQUIA/CONSTRAINTS
+    
+    func loadData(time: String?, icon: UIImage?, temp: String?) {
+        hourLabel.text = time
+        iconImageView.image = icon
+        temperatureLabel.text = temp
+    }
     
     private func setupView() {
         setHierarchy()
